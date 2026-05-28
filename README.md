@@ -1,3 +1,6 @@
+# ''' priyanshukapoor.me'''
+
+
 A personal corner of the internet built to explore technology, creativity, infrastructure, and curiosity.
 
 This website started as a late-night experiment and slowly turned into a space where I can document projects, thoughts, rabbit holes, and the things I’m learning along the way.
