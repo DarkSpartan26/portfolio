@@ -16,7 +16,7 @@ jobs:
           username: duck
           key: ${{ secrets.DEPLOY_KEY }}
           script: |
-            cd /opt/portfolio
+            cd ~/opt/portfolio
             git pull origin main
             docker build -t portfolio:latest .
             docker compose down
