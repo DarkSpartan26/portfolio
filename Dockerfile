@@ -9,7 +9,8 @@ WORKDIR /app
 RUN apk add --no-cache libc6-compat
 
 COPY package.json package-lock.json ./
-RUN npm ci --frozen-lockfile
+RUN --mount=type=cache,target=/root/.npm \
+    npm ci --frozen-lockfile
 
 # ────────────────────────────────────────────────────────────
 # Stage 2 – Build the application
@@ -24,7 +25,8 @@ COPY . .
 # Disable Next.js telemetry during build
 ENV NEXT_TELEMETRY_DISABLED=1
 
-RUN npm run build
+RUN --mount=type=cache,target=/app/.next/cache \
+    npm run build
 
 # ────────────────────────────────────────────────────────────
 # Stage 3 – Production runtime (minimal image)

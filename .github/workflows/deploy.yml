@@ -15,10 +15,11 @@ jobs:
           port: 2222
           username: duck
           key: ${{ secrets.DEPLOY_KEY }}
+          command_timeout: 30m
           script: |
             cd ~/opt/portfolio
             git pull origin main
-            docker build -t portfolio:latest .
+            docker buildx build -t portfolio:latest .
             docker compose down
             docker compose up -d
             docker image prune -f
