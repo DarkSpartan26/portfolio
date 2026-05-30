@@ -11,9 +11,10 @@ jobs:
       - name: Deploy to DigitalOcean
         uses: appleboy/ssh-action@v1
         with:
-          host: ${{ secrets.DO_HOST }}
-          username: ${{ secrets.DO_USER }}
-          key: ${{ secrets.DO_SSH_KEY }}
+          host: 46.101.183.111
+          port: 2222
+          username: duck
+          key: ${{ secrets.DEPLOY_KEY }}
           script: |
             cd /opt/portfolio
             git pull origin main
